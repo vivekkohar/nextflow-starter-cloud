@@ -44,9 +44,12 @@ export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/application_default_crede
 ```
 
 6. Run GCP nextflow
-a. Make sure the below staging bucket exists
-b. Make sure the service account (Compute Engine default service account) used by nextflow can write to the bucket
-c. replace PROJECT_ID in gcp/gcp.config with your GCP Project ID
+
+* a. Make sure the below staging bucket exists
+
+* b. Make sure the service account (Compute Engine default service account) used by nextflow can write to the bucket
+
+* c. Replace PROJECT_ID in gcp/gcp.config with your GCP Project ID
 ```
 nextflow run gcp/test-gcp.nf -profile gls -c gcp/gcp.config -w gs://PROJECT_ID/test-sn
 ```
@@ -55,6 +58,7 @@ nextflow run gcp/test-gcp.nf -profile gls -c gcp/gcp.config -w gs://PROJECT_ID/t
 
 1. Make sure the network and subnet is 'default' with 'auto' mode
 2. Enable 'Private Google access' for the network/subnet
+3. Specify disk size in the process. The default disk space is 500GB in nextflow!
 
 ## References
 1. Nextflow on GCP: https://www.nextflow.io/docs/latest/google.html
